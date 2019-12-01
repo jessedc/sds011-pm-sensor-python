@@ -1,0 +1,17 @@
+[Unit]
+Description=SDS011 PM Sensor
+After=multi-user.target
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/sds011-pm-sensor-python
+EnvironmentFile=/home/pi/sds011-pm-sensor-python/.env.installed
+ExecStart=/usr/bin/python3 -u -m sds011 -i 192.168.1.9
+StandardOutput=syslog
+StandardError=syslog
+RestartSec=5s
+Restart=always
+
+[Install]
