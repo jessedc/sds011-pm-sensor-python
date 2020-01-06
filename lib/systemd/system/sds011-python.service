@@ -8,10 +8,11 @@ User=pi
 Group=pi
 WorkingDirectory=/home/pi/sds011-pm-sensor-python
 EnvironmentFile=/home/pi/sds011-pm-sensor-python/.env.installed
-ExecStart=/usr/bin/python3 -u -m sds011 -i 192.168.1.9 -p /dev/ttyAMA0
+ExecStart=/usr/bin/python3 -u -m sds011 --influx=${INFLUX_HOST} --database=${INFLUX_DB} --port=${SENSOR_PORT}
 StandardOutput=syslog
 StandardError=syslog
 RestartSec=5s
 Restart=always
 
 [Install]
+WantedBy=multi-user.target

@@ -19,7 +19,7 @@ def main():
     """
     parser = argparse.ArgumentParser(description='Parse sds011 serial data')
     parser.add_argument('-i', '--influx', help='Influx DB host')
-    parser.add_argument('-d', '--database', help='InfluxDB database', default='airquality')
+    parser.add_argument('-d', '--database', help='InfluxDB database')
     parser.add_argument('-p', '--port', help='Serial port', default='/dev/ttyUSB0')
     args = parser.parse_args()
 
