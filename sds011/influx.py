@@ -1,28 +1,28 @@
 from datetime import datetime, timezone
-from copy import deepcopy
 
 
-def measurements_from_data(data):
+def measurement_from_data(pm25, pm100, geohash):
     """
-    Turn the SDS011 object into a set of influx-db compatible measurements
-    :param data:
-    :return:
+    Turn the SDS011 object into a set of influx-db compatible measurement object
+    :param geohash: Geohash of the location
+    :param pm25:
+    :param pm100
+    :return: dictionary
     """
 
     timestamp = datetime.now(timezone.utc).astimezone().isoformat()
 
-    measure_base = {
+    return {
         "measurement": "pm",
         "tags": {
             "sensor": "sds011",
-            "location": "outdoors"
+            "location": "outdoors",
+            "geohash": geohash,
         },
         "time": timestamp,
-        "fields": {}
+        "fields": {
+            "pm25": float(pm25),
+            "pm100": float(pm100)
+        }
     }
 
-    measurements = []
-
-    measurement = deepcopy(measure_base)
-
-    pass

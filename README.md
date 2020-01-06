@@ -22,3 +22,10 @@ Frequency: 1hz
 9. Message tail `0xAB`
 
 Checksum = `DATA1 + DATA2 + ... + DATA6`
+
+## Cable Spec
+
+Yellow - 5V
+Green - GND
+Blue - RX
+Purple - TX
